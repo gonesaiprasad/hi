@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Income Lab - AI & Side Hustle / Finance Toolkit</title>
+    <meta name="description" content="Reviews, comparisons & tutorials of AI-tools, guides on ways to earn online, and money management tips in English and Hindi">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5A52D3;
+            --primary-light: #8B85FF;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --dark: #1A1A2E;
+            --darker: #0F0F1B;
+            --light: #F5F5F7;
+            --gray: #8E8E9E;
+            --success: #2ECC71;
+            --warning: #F39C12;
+            --danger: #E74C3C;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --box-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, #FF9A8B 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: var(--primary-light);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .language-toggle {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 5px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--light);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .lang-btn.active {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at top right, rgba(108, 99, 255, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(54, 209, 220, 0.1), transparent 40%),
+                        var(--darker);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.05) 0%, transparent 70%);
+            animation: pulse 15s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary-light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            border: 1px solid rgba(108, 99, 255, 0.3);
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 550px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-graphics {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(1) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-card:nth-child(2) {
+            top: 50%;
+            right: 25%;
+            animation-delay: 2s;
+        }
+
+        .floating-card:nth-child(3) {
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .floating-card h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .floating-card p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #fff, var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(54, 209, 220, 0.1));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-img {
+            height: 180px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            gap: 12px;
+            color: var(--accent);
+        }
+
+        /* Tools Comparison */
+        .tools-comparison {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            margin-top: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tools-comparison h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--light);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background-color: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+
+        .comparison-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .rating {
+            color: var(--warning);
+        }
+
+        /* Bilingual Content */
+        .bilingual-content {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .language-tab {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .language-tab:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .language-tab h3 {
+            margin-bottom: 20px;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+
+        .language-tab h3 i {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .language-tab p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .language-tab ul {
+            list-style: none;
+        }
+
+        .language-tab ul li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .language-tab ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Slider */
+        .slider-container {
+            position: relative;
+            margin: 50px 0;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slide-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .slide-text {
+            flex: 1;
+        }
+
+        .slide-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .slide-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .slide-image {
+            flex: 1;
+            height: 300px;
+            background: var(--gradient);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--gradient);
+            padding: 80px 0;
+            text-align: center;
+            border-radius: var(--border-radius-lg);
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,50 Q250,0 500,50 T1000,50 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.1)"></path></svg>');
+            background-size: 100% 100%;
+        }
+
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--darker);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .footer-column p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-light);
+            gap: 12px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-graphics {
+                width: 45%;
+            }
+            
+            .floating-card {
+                width: 180px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .bilingual-content {
+                flex-direction: column;
+            }
+            
+            .slide-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero-graphics {
+                display: none;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: var(--border-radius);
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                border-radius: 0;
+                width: 100%;
+            }
+            
+            .tools-comparison {
+                padding: 25px;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .comparison-table th, .comparison-table td {
+                padding: 10px 8px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>AI Income Lab</h1>
+                    <span>AI & Side Hustle Toolkit</span>
+                </div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#ai-tools">AI Tools</a></li>
+                    <li><a href="#side-hustles">Side Hustles</a></li>
+                    <li><a href="#finance-tips">Finance Tips</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="hi">हिंदी</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-rocket"></i> AI-Powered Income Solutions
+                </div>
+                <h2>Master AI Tools & Build Your Online Income</h2>
+                <p>Your ultimate resource for AI tools, online income opportunities, and financial guidance - available in both English and Hindi.</p>
+                <div class="hero-actions">
+                    <a href="#ai-tools" class="cta-button">
+                        <i class="fas fa-play-circle"></i> Get Started
+                    </a>
+                    <a href="#tutorials" class="cta-button secondary">
+                        <i class="fas fa-video"></i> Watch Tutorials
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-graphics">
+                <div class="floating-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>AI Tools</h4>
+                    <p>Productivity & Content</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-wallet"></i>
+                    <h4>Side Hustles</h4>
+                    <p>Earn Online</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Finance Tips</h4>
+                    <p>Money Management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    <section id="ai-tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>AI Tools for Productivity & Content Creation</h2>
+                <p>Discover the best AI tools to boost your productivity, create amazing content, and automate your workflows.</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Content Creation AI</h3>
+                        <p>Tools like ChatGPT, Jasper, and Copy.ai that help you write compelling content faster.</p>
+                        <a href="#" class="card-link">Read Reviews <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Video & Image AI</h3>
+                        <p>Create stunning visuals with tools like Midjourney, DALL-E, and Runway ML.</p>
+                        <a href="#" class="card-link">See Comparisons <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Productivity AI</h3>
+                        <p>Automate tasks and boost efficiency with tools like Notion AI, Motion, and Reclaim.</p>
+                        <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tools Slider -->
+            <div class="slider-container">
+                <div class="slider" id="toolsSlider">
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="slide-text">
+                                <h3>ChatGPT: The Ultimate AI Assistant</h3>
+                                <p>Learn how to leverage ChatGPT for content creation, coding, research, and more. Our comprehensive guide covers prompts, use cases, and advanced techniques.</p>
+                                <a href="#" class="cta-button secondary">Read Guide</a>
+                            </div>
+                            <div class="slide-image">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="slide-text">
+                                <h3>Midjourney: AI Art Generation</h3>
+                                <p>Master the art of AI image generation with Midjourney. From basic prompts to advanced parameters, create stunning visuals for your projects.</p>
+                                <a href="#" class="cta-button secondary">Explore Tutorials</a>
+                            </div>
+                            <div class="slide-image">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="slide-text">
+                                <h3>Notion AI: Organize & Create</h3>
+                                <p>Supercharge your productivity with Notion AI. Learn how to automate workflows, generate content, and manage projects efficiently.</p>
+                                <a href="#" class="cta-button secondary">Learn More</a>
+                            </div>
+                            <div class="slide-image">
+                                <i class="fas fa-list-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav" id="sliderNav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+            
+            <div class="tools-comparison">
+                <h3>Popular AI Tools Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Best For</th>
+                            <th>Pricing</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ChatGPT</td>
+                            <td>Content Writing & Coding</td>
+                            <td>Freemium</td>
+                            <td class="rating">★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>Midjourney</td>
+                            <td>AI Image Generation</td>
+                            <td>Paid</td>
+                            <td class="rating">★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td>Notion AI</td>
+                            <td>Productivity & Organization</td>
+                            <td>Paid</td>
+                            <td class="rating">★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td>Jasper</td>
+                            <td>Marketing Content</td>
+                            <td>Paid</td>
+                            <td class="rating">★★★★☆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Side Hustles Section -->
+    <section id="side-hustles" style="background: radial-gradient(circle at top left, rgba(255, 101, 132, 0.1), transparent 50%), var(--darker);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ways to Earn Online</h2>
+                <p>Explore various side hustles, freelancing opportunities, and passive income streams to boost your earnings.</p>
+            </div>
+            
+            <div class="bilingual-content">
+                <div class="language-tab">
+                    <h3><i class="fas fa-globe"></i> English Content</h3>
+                    <p>Discover the best online earning methods suitable for beginners and experienced individuals alike.</p>
+                    <ul>
+                        <li>Freelancing on platforms like Upwork and Fiverr</li>
+                        <li>Affiliate marketing strategies that work</li>
+                        <li>Creating and selling digital products</li>
+                        <li>YouTube channel monetization</li>
+                        <li>Dropshipping and e-commerce</li>
+                    </ul>
+                </div>
+                
+                <div class="language-tab">
+                    <h3><i class="fas fa-language"></i> हिंदी सामग्री</h3>
+                    <p>ऑनलाइन पैसे कमाने के तरीके जानें - शुरुआती और अनुभवी दोनों के लिए उपयुक्त।</p>
+                    <ul>
+                        <li>Upwork और Fiverr जैसे प्लेटफॉर्म पर फ्रीलांसिंग</li>
+                        <li>काम करने वाली एफिलिएट मार्केटिंग रणनीतियाँ</li>
+                        <li>डिजिटल उत्पाद बनाना और बेचना</li>
+                        <li>YouTube चैनल मुद्रीकरण</li>
+                        <li>ड्रॉपशिपिंग और ई-कॉमर्स</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Finance Tips Section -->
+    <section id="finance-tips">
+        <div class="container">
+            <div class="section-title">
+                <h2>Money Management & Finance Tips</h2>
+                <p>Practical financial advice tailored for young people and those looking to build wealth through side incomes.</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img" style="background: var(--gradient-secondary);">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Budgeting for Beginners</h3>
+                        <p>Learn how to create and stick to a budget that works for your lifestyle and income.</p>
+                        <a href="#" class="card-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, var(--warning), #FFB347);">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Investment Basics</h3>
+                        <p>Start investing with small amounts and understand different investment options.</p>
+                        <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, var(--danger), #FF7B7B);">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Debt Management</h3>
+                        <p>Strategies to pay off debt faster and avoid common financial pitfalls.</p>
+                        <a href="#" class="card-link">See Tips <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id="tutorials" style="background: radial-gradient(circle at bottom right, rgba(54, 209, 220, 0.1), transparent 50%), var(--darker);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tutorials & Guides</h2>
+                <p>Step-by-step tutorials to help you master AI tools and online income strategies.</p>
+            </div>
+            
+            <div class="bilingual-content">
+                <div class="language-tab">
+                    <h3><i class="fas fa-graduation-cap"></i> Latest Tutorials</h3>
+                    <ul>
+                        <li><a href="#">How to Use ChatGPT for Content Creation</a></li>
+                        <li><a href="#">Starting a Profitable Blog in 2023</a></li>
+                        <li><a href="#">AI Tools for Social Media Management</a></li>
+                        <li><a href="#">Creating Your First Digital Product</a></li>
+                        <li><a href="#">Automating Tasks with AI</a></li>
+                    </ul>
+                </div>
+                
+                <div class="language-tab">
+                    <h3><i class="fas fa-video"></i> Video Tutorials</h3>
+                    <ul>
+                        <li><a href="#">Midjourney Masterclass for Beginners</a></li>
+                        <li><a href="#">Setting Up Your First E-commerce Store</a></li>
+                        <li><a href="#">Freelancing on Upwork - Complete Guide</a></li>
+                        <li><a href="#">Personal Finance Apps That Save You Money</a></li>
+                        <li><a href="#">AI Tools for YouTube Content Creation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated with AI Income Lab</h2>
+            <p>Get the latest AI tool reviews, side hustle ideas, and financial tips delivered to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AI Income Lab</h3>
+                    <p>Your ultimate resource for AI tools, online income opportunities, and financial guidance.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#ai-tools">AI Tools</a></li>
+                        <li><a href="#side-hustles">Side Hustles</a></li>
+                        <li><a href="#finance-tips">Finance Tips</a></li>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-book"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-balance-scale"></i> Tools Comparison</a></li>
+                        <li><a href="#"><i class="fas fa-graduation-cap"></i> Free Courses</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 AI Income Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Language Toggle
+        const langButtons = document.querySelectorAll('.lang-btn');
+        
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get selected language
+                const selectedLang = this.getAttribute('data-lang');
+                
+                // In a real implementation, you would change the content based on language
+                // For this demo, we'll just show an alert
+                if(selectedLang === 'hi') {
+                    alert('Switching to Hindi content. In a real implementation, this would change all text to Hindi.');
+                } else {
+                    alert('Switching to English content.');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+
+        // Slider functionality
+        const slider = document.getElementById('toolsSlider');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            if (index < 0) index = dots.length - 1;
+            if (index >= dots.length) index = 0;
+            
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+        
+        // Add click events to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Auto slide
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 46, 0.95)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.background = 'rgba(26, 26, 46, 0.9)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
